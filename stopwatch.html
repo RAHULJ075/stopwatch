@@ -1,12 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-<style>
+<style>             
+.circle
+{
+    margin-top: 7%;
+    height: 650px;
+    width:650px;
+    border-radius:650px;
+    border-style:ridge;
+    background-color: rgba(26, 25, 25, 0.825);
+    border-color:rgba(0, 0, 0, 0.823) ;
+    box-shadow: 0 0 10px #ffd700, 0 0 20px #ffea00, 0 0 30px #fff700, 0 0 40px #ffff00;
+
+}
 .number
 {
+    color:aliceblue;
     font-size: 100px;
+    margin-top: 25%;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+
+                                                
 }    
 .start
 {
+    margin-top: 10%;
     font-size: xx-large;
     height: 80px;
     width: 150px;
@@ -20,6 +38,7 @@
 .start:hover
 {
     background-color: #066526;
+    color: aliceblue;
     border-radius: 50px;
     border-color: #0652ec;
     transition:0.5s;
@@ -39,6 +58,7 @@
 .pause:hover
 {
     background-color: #771328;
+    color: aliceblue;
     border-radius: 50px;
     border-color: #0652ec;
     transition:0.5s;
@@ -58,6 +78,7 @@
 .reset:hover
 {
     background-color: #43088b;
+    color: aliceblue;
     border-radius: 50px;
     border-color: #0652ec;
     transition:0.5s;
@@ -71,7 +92,7 @@
 </head>
 <body style="background-color: rgba(0, 0, 0, 0.823); font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;margin:auto;">
 <center>
-    <div style="color:white">    
+    <div class="circle">    
     <h1 id="formal" class="number">00:00:00</h1>
     <button onclick="start()" class="start">Start</button>
     <button onclick="pause()" class="pause">Pause</button>
