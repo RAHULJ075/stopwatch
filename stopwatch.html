@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+.number
+{
+    font-size: 100px;
+}    
+.start
+{
+    font-size: xx-large;
+    height: 80px;
+    width: 150px;
+    background-color: #11ba49;
+    color: aliceblue;
+    border-radius: 50px;
+    border-color: #0652ec;
+    border-width: 5px;
+    
+}
+.start:hover
+{
+    background-color: #066526;
+    border-radius: 50px;
+    border-color: #0652ec;
+    transition:0.5s;
+}
+.pause
+{
+    font-size: xx-large;
+    height: 80px;
+    width: 150px;
+    background-color: #b72733;
+    color: aliceblue;
+    border-radius: 50px;
+    border-color: #0652ec;
+    border-width: 5px;
+    
+}
+.pause:hover
+{
+    background-color: #771328;
+    border-radius: 50px;
+    border-color: #0652ec;
+    transition:0.5s;
+}
+.reset
+{
+    font-size: xx-large;
+    height: 80px;
+    width: 150px;
+    background-color: #850ae3;
+    color: aliceblue;
+    border-radius: 50px;
+    border-color: #0652ec;
+    border-width: 5px;
+    
+}
+.reset:hover
+{
+    background-color: #43088b;
+    border-radius: 50px;
+    border-color: #0652ec;
+    transition:0.5s;
+}
+
+</style>
+<head>
+    <meta charset="UTF-8">
+    <title>Stopwatch</title>
+    
+</head>
+<body style="background-color: rgba(0, 0, 0, 0.823); font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;margin-top:40%;">
+<center>
+    <div style="color:white">    
+    <h1 id="formal" class="number">00:00:00</h1>
+    <button onclick="start()" class="start">Start</button>
+    <button onclick="pause()" class="pause">Pause</button>
+    <button onclick="reset()" class="reset">Reset</button>
+    </div>    
+</center>
+    
+<script>
+var sec=0;
+var min=0;
+var hr=0;
+var dissec,dismin,dishr;
+var interval;
+function startstop() 
+{
+sec++;
+if(sec/60==1) 
+{
+sec=0;
+min++;
+if(min/60==1)
+{
+min=0;
+hr++;
+}
+}
+if(sec<10) 
+{
+dissec='0'+sec.toString();
+} 
+else 
+{
+dissec=sec.toString();
+}
+if(min<10)
+{
+dismin='0'+min.toString();
+} 
+else
+{
+dismin = min.toString();
+}
+if(hr<10) 
+{
+dishr='0'+hr.toString();
+} 
+else
+{
+dishr=hr.toString();
+}
+document.getElementById("formal").innerHTML = dishr + ":" + dismin + ":" + dissec;
+}
+function start()
+{
+if(!interval) 
+{
+interval = window.setInterval(startstop, 1000);
+}
+}
+function pause() 
+{
+if(interval)
+{
+clearInterval(interval);
+interval = null;
+}
+}
+function reset()
+{
+pause();
+sec = 0;
+min = 0;
+hr = 0;
+dissec = "00";
+dismin = "00";
+dishr = "00";
+document.getElementById("formal").innerHTML = "00:00:00";
+}
+</script>
+</body>
+</html>
